@@ -1,0 +1,11 @@
+_example/dnsx/dnsx
+.DS_Store
+dist/
+integration_tests/dnsx
+integration_tests/integration-test
+_example/functional-test/dnsx_dev
+_example/functional-test/functional-test
+_example/functional-test/dnsx
+_example/functional-test/log.txt
+cmd/functional-test/*.cfg
+.vscode/

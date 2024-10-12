@@ -76,14 +76,14 @@ var DefaultOptions = Options{
 
 // DefaultResolvers 包含已知受信任的解析程序列表。
 var DefaultResolvers = []string{
-	"udp:1.1.1.1:53",         // Cloudflare
-	"udp:1.0.0.1:53",         // Cloudflare
 	"udp:8.8.8.8:53",         // Google
 	"udp:8.8.4.4:53",         // Google
 	"udp:9.9.9.9:53",         // Quad9
 	"udp:149.112.112.112:53", // Quad9
 	"udp:208.67.222.222:53",  // Open DNS
 	"udp:208.67.220.220:53",  // Open DNS
+	"udp:1.1.1.1:53",         // Cloudflare
+	"udp:1.0.0.1:53",         // Cloudflare
 }
 
 // New creates a dns resolver

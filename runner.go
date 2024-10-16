@@ -536,12 +536,12 @@ func (r *Runner) worker() {
 		// Ignoring errors as partial results are still good
 		//dnsData.DNSData, _ = r.dnsx.QueryMultiple(domain)
 		dnsClient, _ := retryabledns.New([]string{
-			"114.114.114.114:53",
-			"8.8.8.8:53",        // Google
-			"208.67.222.222:53", // Open DNS
-			"208.67.220.220:53", // Open DNS
-			"1.1.1.1:53",        // Cloudflare
-			"1.0.0.1:53",        // Cloudflare
+			"223.5.5.5",       //阿里dns
+			"8.8.8.8:53",      // Google
+			"119.29.29.29",    //腾讯dns
+			"114.114.114.114", // 114dns
+			"180.76.76.76",    // 百度dns
+			"1.2.4.8",         // cnnicDns
 		}, 2)
 		dnsData.DNSData, _ = dnsClient.Resolve(domain)
 		// Just skipping nil responses (in case of critical errors)

@@ -534,7 +534,16 @@ func (r *Runner) worker() {
 		r.limiter.Take()
 		dnsData := libs.ResponseData{}
 		// Ignoring errors as partial results are still good
-		dnsData.DNSData, _ = r.dnsx.QueryMultiple(domain)
+		//dnsData.DNSData, _ = r.dnsx.QueryMultiple(domain)
+		dnsClient, _ := retryabledns.New([]string{
+			"114.114.114.114:53",
+			"8.8.8.8:53",        // Google
+			"208.67.222.222:53", // Open DNS
+			"208.67.220.220:53", // Open DNS
+			"1.1.1.1:53",        // Cloudflare
+			"1.0.0.1:53",        // Cloudflare
+		}, 2)
+		dnsData.DNSData, _ = dnsClient.Resolve(domain)
 		// Just skipping nil responses (in case of critical errors)
 		if dnsData.DNSData == nil {
 			continue

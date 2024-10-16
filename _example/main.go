@@ -10,7 +10,7 @@ func main() {
 	options.OnResult = func(result *dnsx.Result) {
 		logx.Infof("%s", result.String())
 	}
-	options.Domains = "github.com"
+	options.Domains = "www.json.cn"
 	dnsxRunner, err := dnsx.New(options)
 	if err != nil {
 		logx.Fatalf("Could not create runner: %s\n", err)
